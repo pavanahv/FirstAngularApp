@@ -1,3 +1,17 @@
 <p>Servers Component</p>
 <app-server></app-server>
 <app-server></app-server>
+<hr>
+<label>ServerName</label>
+<input 
+class="form-control"
+type="text"
+(input)="onServerNameUpdated()"
+[(ngModel)]="serverName">
+
+<button
+class="btn btn-primary"
+[disabled]="!serverStatus"
+(click)="onResetServerName()">Reset</button>
+<hr>
+<p>Server Name is : {{ serverName }}</p>

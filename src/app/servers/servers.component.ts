@@ -7,9 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServersComponent implements OnInit {
 
+  serverName = '';
+  serverStatus = false;
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  onServerNameUpdated() {
+    if (this.serverName.length > 0) {
+      this.serverStatus = true;
+    } else {
+      this.serverStatus = false;
+    }
+  }
+
+  onResetServerName(){
+    this.serverName = '';
+    this.onServerNameUpdated();
+  }
 }
