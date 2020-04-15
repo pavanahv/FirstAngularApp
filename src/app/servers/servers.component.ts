@@ -9,6 +9,10 @@ export class ServersComponent implements OnInit {
 
   serverName = '';
   serverStatus = false;
+  showServerDetails = true;
+  serverArr = [];
+  serverReqCount = 0;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -22,8 +26,22 @@ export class ServersComponent implements OnInit {
     }
   }
 
-  onResetServerName(){
+  onResetServerName() {
     this.serverName = '';
     this.onServerNameUpdated();
+  }
+
+  onDisplayServerDetails() {
+    this.showServerDetails = !this.showServerDetails;
+    this.serverReqCount++;
+    this.serverArr.push(this.serverReqCount);
+  }
+
+  getLimitStatus() {
+    if (this.serverArr.length > 5) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

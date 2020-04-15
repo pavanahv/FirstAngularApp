@@ -15,3 +15,13 @@ class="btn btn-primary"
 (click)="onResetServerName()">Reset</button>
 <hr>
 <p>Server Name is : {{ serverName }}</p>
+<hr>
+<hr>
+
+<button
+class="btn btn-primary"
+(click)="onDisplayServerDetails()"
+>Display Server Details</button>
+<hr>
+<p *ngIf="showServerDetails">Server Name : Test = IP : 10.221.34.42</p>
+<p *ngFor="let server of serverArr" [ngClass]="{ limit : getLimitStatus()}">Requested for server details count {{server}}</p>
