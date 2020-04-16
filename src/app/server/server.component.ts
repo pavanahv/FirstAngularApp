@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, Input } from '@angular/core';
+import { Component, EventEmitter, Output, Input, ViewChild } from '@angular/core';
 
 
 @Component({
@@ -7,11 +7,16 @@ import { Component, EventEmitter, Output, Input } from '@angular/core';
 })
 export class ServerComponent {
 
+    @ViewChild('contentp') content;
     serverName: string;
     @Input() servers: string[] = [];
 
     @Output() serverAdded = new EventEmitter<{ name: string }>();
     onServerAdded() {
         this.serverAdded.emit({ name: this.serverName });
+    }
+    clicked(ref) {
+        console.log(ref.innerText);
+        console.log(this.content.nativeElement.innerText);
     }
 }

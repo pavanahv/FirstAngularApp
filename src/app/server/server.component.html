@@ -17,3 +17,15 @@
         <p *ngFor="let server of servers">{{server}}</p>
     </div>
 </div>
+<div class="row">
+    <div class="col-xs-12">
+        <ng-content></ng-content>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <p #contentp>Content P</p>
+        <p #content>content</p>
+        <button class="btn btn-success" (click)="clicked(content)">click</button>
+    </div>
+</div>
